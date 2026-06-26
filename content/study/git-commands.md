@@ -2,7 +2,7 @@
 title: "Git 常用命令整理"
 date: 2026-06-24
 draft: false
-categories: ["学习笔记"]
+categories: ["笔记"]
 tags: ["Git", "命令行", "版本控制"]
 description: "整理日常开发中最常用的 Git 命令，方便查阅。"
 ---

@@ -3,3 +3,4 @@ resources/
 .hugo_build.lock
 .DS_Store
 Thumbs.db
+使用说明.md
