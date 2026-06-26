@@ -1,0 +1,41 @@
+{{ define "main" }}
+<article class="post-single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time>{{ .Date.Format "2006-01-02" }}</time>
+      {{ with .Params.categories }}
+        {{ range . }}
+        <a class="cat-badge" href="{{ "/categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+        {{ end }}
+      {{ end }}
+    </div>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="post-desc">{{ . }}</p>{{ end }}
+  </header>
+
+  {{ if .Site.Params.toc }}
+  <div class="toc-wrap">
+    <details>
+      <summary>目录</summary>
+      {{ .TableOfContents }}
+    </details>
+  </div>
+  {{ end }}
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  <footer class="post-footer">
+    <div class="post-tags">
+      {{ range .Params.tags }}
+      <a class="tag" href="{{ "/tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>
+      {{ end }}
+    </div>
+    <nav class="post-nav">
+      {{ with .PrevInSection }}<a class="prev" href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}
+      {{ with .NextInSection }}<a class="next" href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
+    </nav>
+  </footer>
+</article>
+{{ end }}

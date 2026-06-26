@@ -1,0 +1,54 @@
+baseURL = "https://yourusername.github.io/"
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
+title = "我的博客"
+theme = "simple"
+paginate = 10
+enableEmoji = true
+enableRobotsTXT = true
+
+[params]
+  description = "记录生活、学习与爱好"
+  author = "博主"
+  # 首页显示的副标题
+  subtitle = "酒 · 游戏 · 学习笔记"
+  # 开启搜索
+  search = true
+  # 开启目录（文章内）
+  toc = true
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[menu]
+  [[menu.main]]
+    name = "首页"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "酒"
+    url = "/categories/酒/"
+    weight = 2
+  [[menu.main]]
+    name = "学习笔记"
+    url = "/categories/学习笔记/"
+    weight = 3
+  [[menu.main]]
+    name = "游戏"
+    url = "/categories/游戏/"
+    weight = 4
+  [[menu.main]]
+    name = "标签"
+    url = "/tags/"
+    weight = 5
+  [[menu.main]]
+    name = "关于"
+    url = "/about/"
+    weight = 6
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]

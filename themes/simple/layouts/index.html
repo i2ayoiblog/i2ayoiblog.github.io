@@ -1,0 +1,26 @@
+{{ define "main" }}
+<div class="home-wrap">
+  <section class="post-list">
+    {{ range .Paginator.Pages }}
+    <article class="post-card">
+      <div class="post-meta">
+        <time>{{ .Date.Format "2006-01-02" }}</time>
+        {{ with .Params.categories }}
+          {{ range . }}
+          <a class="cat-badge" href="{{ "/categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+          {{ end }}
+        {{ end }}
+      </div>
+      <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      {{ with .Description }}<p class="post-desc">{{ . }}</p>{{ end }}
+      <div class="post-tags">
+        {{ range .Params.tags }}
+        <a class="tag" href="{{ "/tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>
+        {{ end }}
+      </div>
+    </article>
+    {{ end }}
+  </section>
+  {{ template "_internal/pagination.html" . }}
+</div>
+{{ end }}
